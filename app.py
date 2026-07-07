@@ -75,6 +75,7 @@ uploaded_file = st.file_uploader(
 
 if uploaded_file is not None:
 
+    os.makedirs("data", exist_ok=True)
     save_path = os.path.join("data", uploaded_file.name)
 
     # Only rebuild knowledge base if a different PDF is uploaded
