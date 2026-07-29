@@ -265,13 +265,3 @@ Cybersecurity | Generative AI | RAG Applications
 
 GitHub:
 https://github.com/Aditya10102003
-
-
-After replacing it:
-
-```bash
-git add README.md
-git commit -m "Update README with complete CyberMind AI architecture"
-git push origin main
-
-This README will actually make the project look like a real AI security product, not just a college demo. It will also help during interviews.
