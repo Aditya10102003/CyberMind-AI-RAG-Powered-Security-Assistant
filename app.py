@@ -13,7 +13,10 @@ from utils.embeddings import get_embedding_model
 from utils.vector_store import create_vector_store
 from utils.llm import get_llm, get_groq_client
 from utils.bm25 import create_bm25_index, bm25_search
-from utils.language import detect_response_language
+from utils.language import (
+    detect_response_language,
+    clean_question
+)
 from streamlit_mic_recorder import mic_recorder
 
 
@@ -544,6 +547,7 @@ if question:
             "🧠 Searching knowledge base and generating response..."
         ):
             language = detect_response_language(question)
+            search_query = clean_question(question)
             st.write("Detected Language:", language)
 
             try:
@@ -573,10 +577,13 @@ if question:
                  
 
                 else:
+                    language = detect_response_language(question)
 
-                    # Rewrite follow-ups into standalone queries before
-                    # searching, so retrieval isn't blind to prior context.
+                    # Rewrite follow-up questions into standalone queries
                     search_query = build_standalone_query(question, history, llm)
+
+                    # Remove language instructions like "in Tamil"
+                    search_query = clean_question(search_query)
 
                     retrieved_docs, results, bm25_results = retrieve_documents(
                         st.session_state.vector_store,
@@ -631,7 +638,7 @@ if question:
                             history,
                             question,
                             client,
-                            language="English"
+                            language=language
                         )
 
                         for chunk in stream:

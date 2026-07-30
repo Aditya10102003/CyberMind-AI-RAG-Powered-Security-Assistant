@@ -34,3 +34,7 @@ def detect_response_language(question):
             return value
 
     return "English"
+
+def clean_question(question):
+    pattern = r"\b(in|answer in|respond in)\s+(english|hindi|italian|french|german|spanish|telugu|tamil|kannada|malayalam|marathi|bengali|gujarati|punjabi|urdu|japanese|chinese|korean)\b"
+    return re.sub(pattern, "", question, flags=re.IGNORECASE).strip()
