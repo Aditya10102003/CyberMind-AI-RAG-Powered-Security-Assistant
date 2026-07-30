@@ -1,14 +1,23 @@
 from faster_whisper import WhisperModel
 import tempfile
 
-model = WhisperModel(
-    "small",
-    device="cpu",
-    compute_type="int8"
-)
+_model = None
+
+
+def get_model():
+    global _model
+    if _model is None:
+        _model = WhisperModel(
+            "tiny",
+            device="cpu",
+            compute_type="int8"
+        )
+    return _model
 
 
 def speech_to_text(audio_path):
+
+    model = get_model()
 
     segments, info = model.transcribe(
         audio_path,
