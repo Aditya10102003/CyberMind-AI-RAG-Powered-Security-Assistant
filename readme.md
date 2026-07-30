@@ -1,9 +1,22 @@
+---
+title: CyberMind AI
+emoji: 🛡️
+colorFrom: blue
+colorTo: indigo
+sdk: streamlit
+sdk_version: "1.57.0"
+app_file: app.py
+pinned: false
+---
+
 # 🛡️ CyberMind AI  
 ## AI-Powered Security Knowledge Assistant
 
 CyberMind AI is a Retrieval-Augmented Generation (RAG) based cybersecurity knowledge assistant that allows users to upload security documents and interact with them using natural language.
 
 The system combines semantic search, keyword-based retrieval, and Large Language Models to provide accurate, context-aware answers with document sources and confidence scores.
+
+
 
 ---
 
