@@ -397,7 +397,7 @@ for i, message in enumerate(
 
             with st.expander("🔍 Retrieved Context"):
 
-                for i, chunk in enumerate(
+                for j, chunk in enumerate(
                     message["retrieved_context"]
                 ):
 
@@ -630,7 +630,8 @@ if question:
                             retrieved_docs,
                             history,
                             question,
-                            client
+                            client,
+                            language="English"
                         )
 
                         for chunk in stream:

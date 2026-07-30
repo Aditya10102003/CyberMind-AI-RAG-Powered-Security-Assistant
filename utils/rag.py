@@ -154,7 +154,8 @@ def generate_answer(
     retrieved_docs,
     history,
     question,
-    client
+    client,
+    language="English"
 ):
     """
     Generate an answer using the retrieved documents.
@@ -190,6 +191,10 @@ Rules:
 "I couldn't find this information in the uploaded document."
 
 5. When multiple chunks are relevant, synthesize across them rather than only using the first one.
+
+6. Respond ONLY in {language}, no matter what language the documents or chat history are in.
+
+7. Translating or rephrasing the facts from the Retrieved Context into {language} is REQUIRED and does not count as "inventing" information — only adding facts that are not present in the Retrieved Context counts as inventing. If the answer exists in the context, always translate it into {language}; never fall back to the "couldn't find" message just because the context is in a different language.
 
 Conversation History:
 
