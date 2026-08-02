@@ -1,16 +1,11 @@
----
-title: CyberMind AI
-emoji: 🛡️
-colorFrom: blue
-colorTo: indigo
-sdk: streamlit
-sdk_version: "1.57.0"
-app_file: app.py
-pinned: false
----
-
 # 🛡️ CyberMind AI  
 ## AI-Powered Security Knowledge Assistant
+
+## 🎥 Demo Video
+
+Watch the full project walkthrough here:
+
+[https://youtu.be/tpV1nftsaQU]
 
 CyberMind AI is a Retrieval-Augmented Generation (RAG) based cybersecurity knowledge assistant that allows users to upload security documents and interact with them using natural language.
 
@@ -278,3 +273,5 @@ Cybersecurity | Generative AI | RAG Applications
 
 GitHub:
 https://github.com/Aditya10102003
+
+
